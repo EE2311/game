@@ -1,0 +1,81 @@
+/*
+ * Project Name: EE2311 Project - WordTris
+ * Student Name:XU Jian 
+ * Student ID: 53062612
+ * 
+ */
+package WordTris;
+
+import game.GameConsole;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Point;
+
+/**
+ * Demo for the use of:
+ *
+ * @author Ray Cheung
+ */
+public class Demo {
+
+    // create the game console for drawing         
+    // singleton, always return the same instance
+    private GameConsole console = GameConsole.getInstance();
+
+    public Demo() {
+        // make the console visible
+        console.show();
+    }
+
+    public static void main(String[] args) {
+        // a more OO approach to write the main method
+        Demo game = new Demo();
+        game.startGame();
+    }
+
+    public void startGame() {
+
+        console.clear();
+        for (int i = 0; i < 20; i++) {
+            if(i%2==0){
+            console.drawSquare(0 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.DARK_GRAY);
+            console.drawSquare(1 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.WHITE);
+            console.drawSquare(2 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.DARK_GRAY);
+            console.drawSquare(3 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.WHITE);
+            console.drawSquare(4 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.DARK_GRAY);
+            console.drawSquare(5 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.WHITE);
+            console.drawSquare(6 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.DARK_GRAY);
+            console.drawSquare(7 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.WHITE);
+            console.drawSquare(8 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.DARK_GRAY);
+            console.drawSquare(9 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.WHITE);
+            console.update();
+            console.idle(30);
+            }
+            else{
+                console.drawSquare(0 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.WHITE);
+                console.drawSquare(1 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.DARK_GRAY);
+                console.drawSquare(2 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.WHITE);
+                console.drawSquare(3 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.DARK_GRAY);
+                console.drawSquare(4 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.WHITE);
+                console.drawSquare(5 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.DARK_GRAY);
+                console.drawSquare(6 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.WHITE);
+                console.drawSquare(7 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.DARK_GRAY);
+                console.drawSquare(8 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.WHITE);
+                console.drawSquare(9 * GameConsole.SQUARE_SIZE, i * GameConsole.SQUARE_SIZE, Color.DARK_GRAY);
+            }
+            console.update();
+            console.idle(30);
+        }
+
+        console.drawText(250, 150, "[TIME]", new Font("Helvetica", Font.BOLD, 20), Color.white);
+        console.drawText(250, 180, "00:05:32", new Font("Helvetica", Font.PLAIN, 20), Color.white);
+        console.drawText(250, 250, "[SCORE]", new Font("Helvetica", Font.BOLD, 20), Color.white);
+        console.drawText(250, 280, "220", new Font("Helvetica", Font.PLAIN, 20), Color.white);
+        console.update();
+        
+        // the idle time affects the no. of iterations per second which 
+        // should be larger than the frame rate
+        // for fps at 25, it should not exceed 40ms
+        console.idle(35);
+    }
+}
